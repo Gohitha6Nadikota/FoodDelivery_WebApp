@@ -2,14 +2,12 @@ import React from "react";
 import ReactDOM  from "react-dom/client";
 //const heading =React.createElement("h1",{},"Hello React");
 //const heading=<h1 id="heading">Hello JSX</h1>;
-const Heading = ( ) =>
-{
-    return <h1>React Heading Component</h1>;
-};
+const heading =<h1>React Heading Component</h1>;
 
 const Div=() => (
     <div>
-    <Heading/>
+    {heading}
+    {100+300}
     <p>React functional Component example</p>;
     </div>
 );
