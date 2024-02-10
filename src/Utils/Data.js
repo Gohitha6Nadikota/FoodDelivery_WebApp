@@ -1,17 +1,4 @@
-import React from "react";
-import ReactDOM  from "react-dom/client";
-const Card=(props)=>{
-    const {pps}=props;
-    return (
-        <div className="MiniCard-Container">
-            <img alt="Foodpic" className="Mini-Picture" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+pps.info.cloudinaryImageId}/>
-            <h2>{pps.info.name}</h2>
-            <h3>{pps.info.cuisines.join(',')}</h3>
-            <h4>{pps.info.avgRating}</h4>
-            <h4>{pps.info.costForTwo}</h4>
-        </div>
-    );
-}
+
 const data=[
     {
         "info": {
@@ -1451,45 +1438,4 @@ const data=[
         }
     }
 ];
-const Body=()=>{
-    return (
-        <div className="Body-Container">
-            <div className="Search-Container">
-                Search
-            </div>
-            <div className="Card-Container">
-                {
-                    data.map((x)=><Card key={x.info.id} pps={x}/>)
-               
-                }
-            </div>
-        </div>
-    );
-}
-const Header=()=>{
-    return (
-        <div className="Header-Container">
-            <div className="Logo-Container">
-                <img className="Logo" alt="Logo" src="https://marketplace.canva.com/EAFaFUz4aKo/2/0/1600w/canva-yellow-abstract-cooking-fire-free-logo-JmYWTjUsE-Q.jpg"/>
-            </div>
-            <div className="Nav-Items">
-                <ul>
-                    <li>Home</li>
-                    <li>About us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    );
-}
-const App=()=>{
-    return (
-        <div className="App">
-            <Header/>
-            <Body/>
-        </div>
-    );
-}
-const root=ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App/>);
+export default data;
