@@ -1,0 +1,58 @@
+.Body-Container
+{
+    margin:20px;
+}
+.Card-Container
+{
+    display: flex;
+    flex-wrap: wrap;
+    margin:12px;
+}
+.Header-Container
+{
+    display:flex;
+    border: 1px solid black;
+    justify-content: space-between;
+}
+.Logo
+{
+    width: 125px;
+    height: 125px;
+}
+.MiniCard-Container
+{
+    width:300px;
+    padding: 10px;
+    margin: 15px;
+    align-items: center;
+}
+.MiniCard-Container:hover
+{
+    border: 1px solid black;
+    cursor: pointer;
+}
+.Mini-Picture
+{
+    width:100%;
+}
+.Nav-Items
+{
+    margin: 10px;
+    
+}
+.Nav-Items > ul
+{
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+}
+.Nav-Items >ul >li
+{
+    padding:10px 20px;
+    font-size: 20px;
+    
+}
+.Search-Container
+{
+    margin: 10px;
+}
