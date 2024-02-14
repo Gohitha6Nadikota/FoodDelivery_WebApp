@@ -8,6 +8,11 @@
     flex-wrap: wrap;
     margin:12px;
 }
+.Filter-Container
+{
+    display: flex;
+    justify-content: space-between;
+}
 .Header-Container
 {
     display:flex;
@@ -56,4 +61,16 @@
 .Search-Container
 {
     margin: 10px;
+}
+.Shimmer-Container
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+.Shimmer-Card
+{
+    width:300px;
+    margin:25px;
+    height: 300px;
+    background-color: lightgrey;
 }

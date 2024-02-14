@@ -1,24 +1,49 @@
 import data from "../Utils/Data";
 import Card from "./Card";
-import {useState} from 'react';
-const Body=()=>{
-    const [list,setList]=useState(data);
-    return (
+import {useState,useEffect} from 'react';
+import ShimmerUI from "./Shimmer";
+const Body=()=>
+{
+    const [list,setList]=useState([]);
+    const [filterlist,setfilterlist]=useState([]);
+    const [searchText,setSearchText]=useState("");
+    useEffect(()=>{
+        fetchData();
+    },[]);
+    const fetchData = async () =>{
+        const data=  await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.37240&lng=78.43780&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const json=await data.json();
+        console.log(json);
+        setList(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+        setfilterlist(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+        //console.log(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+    }
+    return (list.length===0)?<ShimmerUI/>: (
         <div className="Body-Container">
-            <div className="Search-Container">
-                Search
-            </div>
+            
             <div className="Filter-Container">
+                <div className="Search-Container">
+                    <input type="text" name="Search-Bar" value={searchText} onChange={(e)=>{
+                        setSearchText(e.target.value);
+                    }}/>
+                    <button onClick={()=>{
+                        
+                        const filteredlist =list.filter((n)=>n.info.name.toLowerCase().includes(searchText.toLowerCase()));
+                        //console.log(list);
+                        //console.log(searchText);
+                        setfilterlist(filteredlist);
+                    }}>Search</button>
+                </div>
                 <button className="Filter-Button" onClick={()=>{
                     newData=list.filter((d)=>d.info.avgRating>4);
-                    setList(newData);
+                    setfilterlist(newData);
                 }}>
                     Check Top Rated
                 </button>
             </div>
             <div className="Card-Container">
                 {
-                    list.map((x)=><Card key={x.info.id} pps={x}/>)
+                    filterlist.map((x)=><Card key={x.info.id} pps={x}/>)
                 }
             </div>
         </div>
