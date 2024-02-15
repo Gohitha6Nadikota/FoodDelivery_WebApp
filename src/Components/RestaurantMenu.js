@@ -17,15 +17,20 @@ const RestaurantMenu =()=>{
     if(resMenu===null)
     return <ShimmerUI/>
     const {name,cuisines,costForTwo}=resMenu?.cards[0]?.card?.card?.info;
-    const resItems = resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
-    console.log(resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards);
-    console.log(resItems);
+    const resItems = resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+    //console.log(resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards);
+    //console.log(resItems);
     return (
         <div className="Menu-Container">
             <h2>{name}</h2>
             <p>{cuisines.join(',')}</p>
             <p>{costForTwo}</p>
-            <ul>{resItems.map((item)=><li key={item.card.info.id}>{item.card.info.name}</li>)}</ul>
+            <ul>{resItems && resItems.map((item)=>{
+                if(item?.card?.card?.hasOwnProperty("itemCards"))
+                {
+                    return item?.card?.card?.itemCards?.map((x)=><li>{x.card.info.name}</li>)
+                }
+            })}</ul>
         </div>
     )
 }
