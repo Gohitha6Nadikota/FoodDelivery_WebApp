@@ -6,26 +6,29 @@ class User extends React.Component
     {
         super(props)
         this.state={
-            count:0,
-            count1:1
+            userInfo:{
+                name:"Gohi",
+                location:"Anakapalle",
+            }
         }
+    }
+    async componentDidMount()
+    {
+        const data = await fetch("https://api.github.com/users/Gohitha6Nadikota");
+        const json= await data.json();
+        console.log(json);
+        this.setState({
+            userInfo:json,
+        })
     }
     render()
     {
-        const {name,place,contact}=this.props;
+        const {name,location,avatar_url}=this.state.userInfo;
         return (
             <div className="User-Container">
-                <h1>Count:{this.state.count}</h1>
-                <h1>Count1:{this.state.count1}</h1>
                 <h1>Name: {name}</h1>
-                <h2>Place: {place}</h2>
-                <h3>Contact: {contact}</h3>
-                <button onClick={()=>{
-                    this.setState({count:this.state.count+1})
-                }}>Tap me to change Count</button>
-                <button onClick={()=>{
-                    this.setState({count1:this.state.count1+1})
-                }}>Tap me to change Count1</button>
+                <h2>Place: {location}</h2>
+                <img src={avatar_url}/>
             </div>
         )
     }
