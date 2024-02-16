@@ -1,9 +1,11 @@
 import { CDN_URL } from "../Utils/Constants";
 import {useState} from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../Utils/useOnlineStatus";
 const Header=()=>
 {
     const [stageVariable ,setStageVariable]=useState("Login");
+    const online = useOnlineStatus();
     return (
         <div className="Header-Container">
             <div className="Logo-Container">
@@ -11,6 +13,7 @@ const Header=()=>
             </div>
             <div className="Nav-Items">
                 <ul>
+                    <li>Online Status:{online?"💚":"😡"}</li>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About us</Link></li>
                     <li><Link to="/contact">Contact Us</Link></li>

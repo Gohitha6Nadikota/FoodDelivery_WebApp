@@ -58,6 +58,16 @@
     font-size: 20px;
     
 }
+.Offline-Container
+{
+    height:97vh;
+    background-color: rgb(131, 167, 198);
+}
+.Offline-Container > h2,h3
+{
+    padding-top:200px;
+    padding-left: 300px;
+}
 .Search-Container
 {
     margin: 10px;
