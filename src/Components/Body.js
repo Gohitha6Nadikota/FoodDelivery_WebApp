@@ -3,8 +3,7 @@ import Card from "./Card";
 import {useState,useEffect} from 'react';
 import ShimmerUI from "./Shimmer";
 import { Link } from "react-router-dom";
-const Body=()=>
-{
+const Body=()=>{
     const [list,setList]=useState([]);
     const [filterlist,setfilterlist]=useState([]);
     const [searchText,setSearchText]=useState("");
@@ -12,7 +11,7 @@ const Body=()=>
         fetchData();
     },[]);
     const fetchData = async () =>{
-        const data=  await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.37240&lng=78.43780&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.37240&lng=78.43780&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json=await data.json();
         //console.log(json);
         setList(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
@@ -30,8 +29,6 @@ const Body=()=>
                     <button onClick={()=>{
                         
                         const filteredlist =list.filter((n)=>n.info.name.toLowerCase().includes(searchText.toLowerCase()));
-                        //console.log(list);
-                        //console.log(searchText);
                         setfilterlist(filteredlist);
                     }}>Search</button>
                 </div>

@@ -5,11 +5,11 @@ const Card=(props)=>
     const {cloudinaryImageId,name,cuisines,avgRating,costForTwo}=pps.info;
     return (
         <div className="MiniCard-Container">
-            <img alt="Foodpic" className="Mini-Picture" src={IMAGE_URL+pps.info.cloudinaryImageId}/>
-            <h2>{pps.info.name}</h2>
-            <h6>{pps.info.cuisines.join(',')}</h6>
-            <h4>{pps.info.avgRating}</h4>
-            <h4>{pps.info.costForTwo}</h4>
+            <img alt="Foodpic" className="Mini-Picture" src={IMAGE_URL+cloudinaryImageId}/>
+            <h2>{name}</h2>
+            <h6>{cuisines.join(',')}</h6>
+            <h4>{avgRating}</h4>
+            <h4>{costForTwo}</h4>
         </div>
     );
 }

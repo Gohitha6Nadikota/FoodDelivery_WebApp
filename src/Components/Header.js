@@ -1,7 +1,8 @@
 import { CDN_URL } from "../Utils/Constants";
 import {useState} from "react";
 import { Link } from "react-router-dom";
-const Header=()=>{
+const Header=()=>
+{
     const [stageVariable ,setStageVariable]=useState("Login");
     return (
         <div className="Header-Container">
