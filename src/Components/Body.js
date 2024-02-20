@@ -10,7 +10,7 @@ const Body = () => {
   const [filterlist, setfilterlist] = useState([]);
   const [searchText, setSearchText] = useState("");
   const list = useFetchData();
-  console.log(list);
+  //console.log(list);
   useEffect(() => {
     setfilterlist(list);
   }, [list]);
