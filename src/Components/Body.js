@@ -10,12 +10,10 @@ const Body = () => {
   const [filterlist, setfilterlist] = useState([]);
   const [searchText, setSearchText] = useState("");
   const list = useFetchData();
-  //console.log(list);
   useEffect(() => {
     setfilterlist(list);
   }, [list]);
-  const NewCard =withSpecialFeature(Card);
-  //console.log(filterlist);
+  const NewCard = withSpecialFeature(Card);
   const online = useOnlineStatus();
   if (online === false) {
     return <OfflinePage />;
@@ -70,7 +68,7 @@ const Body = () => {
             key={x.info.id}
             to={"/restaurants/" + x.info.id}
           >
-            {x.info.avgRating > 4.5 ?<NewCard pps={x}/>:<Card pps={x} />}
+            {x.info.avgRating > 4.5 ? <NewCard pps={x} /> : <Card pps={x} />}
           </Link>
         ))}
       </div>
