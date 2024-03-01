@@ -12,6 +12,7 @@ const IndividualCategory = (props) => {
    dispatch(addItem(iitem));
   }
   return (
+    <>
     <div className="bg-gray-100 m-2 p-2 flex justify-between">
       <div className=" w-9/12 text-left ">
         <h1 className="font-bold">{iitem.name}</h1>
@@ -27,6 +28,8 @@ const IndividualCategory = (props) => {
         <img src={ITEM_IMAGE_URL + iitem.imageId} className="object-contain " />
       </div>
     </div>
+    <div class="border-b border-solid border-1"></div>
+    </>
   );
 };
 export default IndividualCategory;

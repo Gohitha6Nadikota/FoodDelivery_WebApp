@@ -9,9 +9,10 @@ const RestaurantMenu = () => {
   const [showIndex, setShowIndex] = useState(0);
 
   if (resMenu === null) return <ShimmerUI />;
-  const { name, cuisines, avgRating } = resMenu.cards[2]?.card?.card?.info;
+  console.log(resMenu);
+  const { name, cuisines, avgRating } = resMenu.cards[0]?.card?.card?.info;
   const categories =
-    resMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
         c.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
@@ -20,12 +21,12 @@ const RestaurantMenu = () => {
     <div className="m-4 w-9/12 mx-auto">
       <div className="flex justify-between mt-2 shadow-lg">
         <div className="justify-center text-center">
-          <h1 className="font-bold m-1 p-4 text-lg">{name}</h1>
-          <h2 className="font-bold  text-sm m-1 p-4 text-left">
+          <h1 className="font-bold m-1 px-4 py-2 text-lg">{name}</h1>
+          <h2 className="font-bold  text-xs m-1 px-4 pb-3 text-left">
             {cuisines.join(" , ")}
           </h2>
         </div>
-        <div className="m-2 p-2">
+        <div className="m-2 p-6">
           <span>⭐ {avgRating}</span>
         </div>
       </div>

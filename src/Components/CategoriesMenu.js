@@ -5,7 +5,9 @@ function CategoriesMenu({ itemx, showItems, setShowIndex }) {
   const pitem = itemx?.card?.card;
   const changeStatus = () => {
     setShowIndex();
+    setToggle(!toggle);
   };
+  const [toggle,setToggle] = useState(false);
   return (
     <div className="bg-gray-50">
       <div
@@ -18,7 +20,7 @@ function CategoriesMenu({ itemx, showItems, setShowIndex }) {
         <h1>⬇️</h1>
       </div>
       <div className="text-center">
-        {showItems &&
+        {toggle && showItems &&
           pitem.itemCards.map((iitem,index) => <IndividualCategory key={index} items={iitem} />)}
       </div>
     </div>

@@ -23,11 +23,12 @@ const Body = () => {
   ) : (
     <div className="Body-Container">
       <div className="flex">
-        <div className="m-4 p-4">
+        <div className="m-auto p-4 ">
           <input
-            className="border border-solid border-black"
+            className="border-4 border-solid border-black rounded-md text-black"
             type="text"
             name="Search-Bar"
+            placeholder=" Enter to Search"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
@@ -38,7 +39,7 @@ const Body = () => {
             }}
           />
           <button
-            className="px-6 m-4 py-1 bg-green-100 rounded-xl"
+            className="px-6 m-4 py-1 bg-green-100 rounded-xl text-black font-bold"
             onClick={() => {
               const filteredlist = list.filter((n) =>
                 n.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -48,17 +49,18 @@ const Body = () => {
           >
             Search
           </button>
-        </div>
-        <div className="m-4 p-4">
           <button
-            className="m-4 p-4 bg-green-400 py-1 rounded-md"
+            className="m-4 p-4 bg-green-400 py-1 rounded-md  text-black font-bold underline"
             onClick={() => {
-              newData = list.filter((d) => d.info.avgRating > 4);
+              newData = list.filter((d) => d.info.avgRating > 4.4);
               setfilterlist(newData);
             }}
           >
             Check Top Rated
           </button>
+        </div>
+        <div className="m-4 p-4">
+          
         </div>
       </div>
       <div className="flex flex-wrap justify-center">
