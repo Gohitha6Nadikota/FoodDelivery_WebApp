@@ -5,7 +5,7 @@ const Card = (props) => {
   const { pps } = props;
   const { cloudinaryImageId, name, cuisines, avgRating, costForTwo } = pps.info;
   return (
-    <div className="m-4 w-[273px] h-[400px] hover:bg-green-100 rounded-2xl items-center shadow-2xl">
+    <div className="m-4 w-[273px] h-[400px] hover:bg-green-100 rounded-2xl items-center shadow-2xl border border-3 border-black ">
       <img
         alt="Foodpic"
         className="Mini-Picture rounded-2xl  h-[186px] w-[277px] object-cover p-2 "

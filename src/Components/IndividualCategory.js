@@ -16,7 +16,7 @@ const IndividualCategory = (props) => {
     <div className="bg-gray-100 m-2 p-2 flex justify-between">
       <div className=" w-9/12 text-left ">
         <h1 className="font-bold">{iitem.name}</h1>
-        <h1>₹{iitem.price ? iitem.price : iitem.defaultPrice}</h1>
+        <h1>₹{iitem.price ? iitem.price/100 : iitem.defaultPrice/100}</h1>
         <h1>{iitem.description}</h1>
       </div>
       <div className="w-3/12 h-[100%] ">

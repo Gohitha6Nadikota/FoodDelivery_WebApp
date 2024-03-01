@@ -25,7 +25,7 @@ const Body = () => {
       <div className="flex">
         <div className="m-auto p-4 ">
           <input
-            className="border-4 border-solid border-black rounded-md text-black"
+            className="border-2 border-solid rounded-md text-black"
             type="text"
             name="Search-Bar"
             placeholder=" Enter to Search"
@@ -49,19 +49,18 @@ const Body = () => {
           >
             Search
           </button>
-          <button
-            className="m-4 p-4 bg-green-400 py-1 rounded-md  text-black font-bold underline"
-            onClick={() => {
-              newData = list.filter((d) => d.info.avgRating > 4.4);
-              setfilterlist(newData);
-            }}
-          >
-            Check Top Rated
-          </button>
         </div>
         <div className="m-4 p-4">
-          
-        </div>
+            <button
+              className="m-4 p-4 bg-green-400 py-1 rounded-md  text-black font-bold underline"
+              onClick={() => {
+                newData = list.filter((d) => d.info.avgRating > 4.4);
+                setfilterlist(newData);
+              }}
+            >
+              Check Top Rated
+            </button>
+          </div>
       </div>
       <div className="flex flex-wrap justify-center">
         {filterlist.map((x) => (

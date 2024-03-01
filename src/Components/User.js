@@ -21,10 +21,10 @@ class User extends React.Component {
   render() {
     const { name, location, avatar_url } = this.state.userInfo;
     return (
-      <div className="User-Container">
+      <div className="User-Container bg-medium m-2 p-2 border-2 border-black">
         <h1>Name: {name}</h1>
         <h2>Place: {location}</h2>
-        <img src={avatar_url} />
+        {/*<img src={avatar_url} />*/}
         <UserContext.Consumer>
           {({ loggedInUser }) => <h1>{loggedInUser}</h1>}
         </UserContext.Consumer>
