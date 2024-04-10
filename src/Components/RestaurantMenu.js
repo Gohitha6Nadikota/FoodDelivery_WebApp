@@ -10,9 +10,9 @@ const RestaurantMenu = () => {
 
   if (resMenu === null) return <ShimmerUI />;
   console.log(resMenu);
-  const { name, cuisines, avgRating } = resMenu.cards[0]?.card?.card?.info;
+  const { name, cuisines, avgRating } = resMenu.cards[2]?.card?.card?.info;
   const categories =
-    resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    resMenu?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
         c.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
