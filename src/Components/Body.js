@@ -3,7 +3,7 @@ import Card, { withSpecialFeature } from "./Card";
 import { useState, useEffect } from "react";
 import ShimmerUI from "./Shimmer";
 import { Link } from "react-router-dom";
-import useFetchData from "../Utils/UseFetchData";
+import useFetchData from "../Utils/useFetchData";
 import useOnlineStatus from "../Utils/useOnlineStatus";
 import OfflinePage from "./OfflinePage";
 const Body = () => {
