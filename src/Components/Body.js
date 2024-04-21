@@ -21,11 +21,11 @@ const Body = () => {
   return list.length === 0 ? (
     <ShimmerUI />
   ) : (
-    <div className="Body-Container">
-      <div className="flex">
-        <div className="m-auto p-4 ">
+    <div className="Body-Container w-full">
+      <div className="flex flex-col">
+        <div className="p-1 flex items-center justify-center">
           <input
-            className="border-2 border-solid rounded-md text-black"
+            className="border-2 border-solid rounded-md text-black h-[40px]"
             type="text"
             name="Search-Bar"
             placeholder=" Enter to Search"

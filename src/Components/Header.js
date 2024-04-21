@@ -12,24 +12,39 @@ const Header=()=>
     const {loggedInUser} =useContext(UserContext);
     const cartItems = useSelector((store)=>store.cart.items);
     return (
-        <div className="flex justify-between shadow-md">
-            <div className="Logo-Container">
-                <img className="w-20 shadow-md pl-1 pt-1" alt="Logo" src={Logo}/>
-            </div>
-            <div className="flex items-center ">
-                <ul className="flex p-4 m-4 ">
-                    <li className="px-4">Online Status:{online?"💚":"😡"}</li>
-                    <li className="px-4"><Link to="/">Home</Link></li>
-                    <li className="px-4"><Link to="/about">About us</Link></li>
-                    <li className="px-4"><Link to="/contact">Contact Us</Link></li>
-                    <li className="px-4"><Link to ="/cart">Cart{cartItems.length!=0 && ( - cartItems.length)}</Link></li>
-                    <button className="stage" onClick={()=>{
-                        (stageVariable==="Login")?setStageVariable("Logout"):setStageVariable("Login");
-                    }}>{stageVariable}</button>
-                    { stageVariable==="Logout"  && <li className="px-4 font-bold">{loggedInUser}</li>}
-                </ul>
-            </div>
+      <div className="flex justify-between shadow-md w-full">
+        <div className="flex Logo-Container w-4/12 items-center align-middle">
+          <Link to="/">
+            <img className="w-20 shadow-md pl-1 pt-1" alt="Logo" src={Logo} />
+          </Link>
         </div>
+        <div className="flex items-center w-8/12 ">
+          <ul className="flex p-4 items-center">
+            <li className="px-1 hidden md:block">Online:{online ? "💚" : "😡"}</li>
+            <li className="px-1">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="px-1">
+              <Link to="/cart">
+                Cart{cartItems.length != 0 && -cartItems.length}
+              </Link>
+            </li>
+            <button
+              className="stage px-1"
+              onClick={() => {
+                stageVariable === "Login"
+                  ? setStageVariable("Logout")
+                  : setStageVariable("Login");
+              }}
+            >
+              {stageVariable}
+            </button>
+            {stageVariable === "Logout" && (
+              <li className="px-4 font-bold">{loggedInUser}</li>
+            )}
+          </ul>
+        </div>
+      </div>
     );
 }
 export default Header;
