@@ -18,7 +18,7 @@ const Header=()=>
             <img className="w-20 shadow-md pl-1 pt-1" alt="Logo" src={Logo} />
           </Link>
         </div>
-        <div className="flex items-center w-8/12 ">
+        <div className="flex items-center justify-end w-8/12 ">
           <ul className="flex p-4 items-center">
             <li className="px-1 hidden md:block">Online:{online ? "💚" : "😡"}</li>
             <li className="px-1">
