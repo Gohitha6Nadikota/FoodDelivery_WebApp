@@ -7,11 +7,11 @@ const useFetchData = () => {
   }, []);
 
   const FetchData = async () => {
-    const data = await fetch("https://gh-food-delivery.vercel.app/" + SWIGGY_API);
+    const data = await fetch( SWIGGY_API);
     const json = await data.json();
     console.log(json.data);
     setList(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
   return list;

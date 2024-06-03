@@ -7,7 +7,6 @@ const useRestaurantMenu = (resId) => {
   }, []);
   const FetchData = async () => {
     const data = await fetch(
-      "https://gh-food-delivery.vercel.app/" +
         MENU_API +
         resId
     );
