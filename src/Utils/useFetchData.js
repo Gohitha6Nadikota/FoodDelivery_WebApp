@@ -8,7 +8,7 @@ const useFetchData =()=>
     },[]);
 
     const FetchData = async ()=>{
-        const data = await fetch(SWIGGY_API);
+        const data = await fetch("http://localhost:1234/"+SWIGGY_API);
         const json = await data.json();
         setList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
